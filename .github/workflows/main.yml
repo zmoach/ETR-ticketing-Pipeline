@@ -8,15 +8,20 @@ jobs:
         steps:
             - name: Checkout Repo
               uses: actions/checkout@v4
-              
-            - name: welcome first jobs
-              run: echo "my fist job fromTicketing pipeline"
-            
-            - name: list files
-              run: ls
 
-            - name: read files
-              run: cat README.md
+            - name: welcome first jobs
+              run: |
+                echo "my fist job fromTicketing pipeline"
+                ls -ltre
+                cat README.md
+              
+
+            
+            # - name: list files
+            #   run: ls
+
+            # - name: read files
+            #   run: cat README.md
 
               
             
