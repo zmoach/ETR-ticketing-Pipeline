@@ -12,7 +12,7 @@ jobs:
             - name: welcome first jobs
               run: |
                 echo "my fist job fromTicketing pipeline"
-                ls -ltre
+                ls -ltra
                 cat README.md
               
 
