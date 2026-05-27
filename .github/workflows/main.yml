@@ -26,7 +26,7 @@ jobs:
           uses: actions/download-artifact@v8
           with:
             name: dragon_file
-            path: dragon.txt
+            # path: dragon.txt  no need of the path for downloading, just the name of the file to be same as in upload
     
         - name: test file exist
           run: grep -i "dragon" dragon.txt
@@ -39,7 +39,7 @@ jobs:
           uses: actions/download-artifact@v8
           with:
             name: dragon_file
-            path: dragon.txt
+            # path: dragon.txt
 
         - name: Read file
           run: cat dragon.txt
