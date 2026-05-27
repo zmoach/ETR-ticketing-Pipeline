@@ -1,22 +1,38 @@
-name: Ticketing_Pipeline
+name: Multiple_Jobs 
 
 on: push
 
 jobs:
-    first_job:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Repo
-              uses: actions/checkout@v4
+    build_job:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Install cowsy program
+          run: sudo apt-get install cowsay -y
+       
+        - name: Execute Cowsay CMD
+          run: cowsay -f dragon "Iam a dragon"  >> dragon.txt
 
-            - name: welcome first jobs
-              run: |
-                echo "my fist job fromTicketing pipeline"
-                ls -ltra
-                cat README.md
-              
+        - name: sleep for 30 seconds
+          run: sleep 30
+    
+    test_job:
+      runs-on: ubuntu-latest
+      steps:
+        - name: sleep for 30 seconds
+          run: sleep 30
+    
+        - name: test file exist
+          run: grep -i "dragon" dragon.txt
+        
+    deploy_job:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Read file
+          run: cat dragon.txt
 
-            
+        - name: Deploy the file
+          run: echo Deploying.....
+
             # - name: list files
             #   run: ls
 
